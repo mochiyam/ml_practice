@@ -1,3 +1,7 @@
+# Using Cats v Dogs dataset and train them using CNN.
+# Practicing with data preprocessing by splitting the dataset 
+#  into training and validation datasets.
+
 import os
 import zipfile
 import random
@@ -46,6 +50,8 @@ except OSError:
 
 def split_data(SOURCE, TRAINING, TESTING, SPLIT_SIZE):
     source_files = []
+    # All images should be checked, and if they have a zero file length,
+    #  they will not be copied over
     for file in os.listdir(SOURCE) :
         file_path = SOURCE + file
         if os.path.getsize(file_path) > 0 :
@@ -93,16 +99,13 @@ model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics=[
 TRAINING_DIR = '/tmp/cats-v-dogs/training/'
 train_datagen = ImageDataGenerator(rescale=1.0/255.)
 
-# NOTE: YOU MUST USE A BATCH SIZE OF 10 (batch_size=10) FOR THE 
-# TRAIN GENERATOR.
 train_generator = train_datagen.flow_from_directory(TRAINING_DIR, target_size=(150, 150),
                                                 class_mode='binary', batch_size=10)
 
 VALIDATION_DIR = '/tmp/cats-v-dogs/testing/'
 validation_datagen = ImageDataGenerator(rescale=1.0/255.)
 
-# NOTE: YOU MUST USE A BACTH SIZE OF 10 (batch_size=10) FOR THE 
-# VALIDATION GENERATOR.
+
 validation_generator = validation_datagen.flow_from_directory(VALIDATION_DIR, target_size=(150, 150),
                                                     class_mode='binary', batch_size=10)
 

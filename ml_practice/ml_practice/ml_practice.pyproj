@@ -25,7 +25,7 @@
     <Compile Include="happy_sad.py" />
     <Compile Include="house_prices.py" />
     <Compile Include="mnist_classifier.py" />
-    <Compile Include="module1.py">
+    <Compile Include="cats_vs_dogs.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

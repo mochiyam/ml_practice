@@ -28,6 +28,11 @@
     <Compile Include="cats_vs_dogs.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="multiclass.py" />
+    <Compile Include="nlp_bbc_archive.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="transfer_learning.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

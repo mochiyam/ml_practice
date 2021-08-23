@@ -88,7 +88,7 @@ model = tf.keras.models.Sequential([
 ])
 
 model.compile(optimizer=RMSprop(lr=0.001), loss='binary_crossentropy', metrics=['acc'])
-
+T
 RAINING_DIR = "/tmp/cats-v-dogs/training/"
 train_datagen = ImageDataGenerator(
     rescale=1./255,
@@ -98,8 +98,8 @@ train_datagen = ImageDataGenerator(
     shear_range=0.2,
     zoom_range=0.2,
     fill_mode="nearest",
-    horizontal_flip=True,
-    vertical_flip=True)
+    horizontal_flip=True)
+    #vertical_flip=True)
 
 # NOTE: YOU MUST USE A BATCH SIZE OF 10 (batch_size=10) FOR THE 
 # TRAIN GENERATOR.
@@ -125,6 +125,35 @@ history = model.fit_generator(train_generator,
                               epochs=2,
                               verbose=1,
                               validation_data=validation_generator)
+
+# Running the model
+import numpy as np
+
+from google.colab import files
+from keras.preprocessing import image
+
+uploaded=files.upload()
+
+for fn in uploaded.keys():
+ 
+  # Predicting images
+  path='/content/' + fn
+  img=image.load_img(path, target_size=(150, 150))
+  
+  x=image.img_to_array(img)
+  x=np.expand_dims(x, axis=0)
+  images = np.vstack([x])
+  
+  classes = model.predict(images, batch_size=10)
+  
+  print(classes[0])
+  
+  if classes[0]>0:
+    print(fn + " is a dog")
+    
+  else:
+    print(fn + " is a cat")
+
 
 
 # PLOT LOSS AND ACCURACY

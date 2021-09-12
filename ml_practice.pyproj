@@ -28,10 +28,14 @@
     <Compile Include="cats_vs_dogs.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="module1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="multiclass.py" />
     <Compile Include="nlp_bbc_archive.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="nlp_bbc_word_embedding.py" />
     <Compile Include="transfer_learning.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

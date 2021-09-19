@@ -28,7 +28,7 @@
     <Compile Include="cats_vs_dogs.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="module1.py">
+    <Compile Include="time_series_dnn.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="multiclass.py" />

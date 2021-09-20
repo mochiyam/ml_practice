@@ -36,6 +36,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="nlp_bbc_word_embedding.py" />
+    <Compile Include="time_series_lstm.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="transfer_learning.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
